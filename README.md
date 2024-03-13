@@ -25,6 +25,7 @@ language of your choice).
 **Bonus points** 
 for deploying your pipeline as a Docker container; you can use a local Docker installation to
 simulate a cloud deployment.
+
 **Extra bonus points** 
 for using MinIO to simulate files stored and read directly from a cloud-based object storage
 such as AWS S3.
