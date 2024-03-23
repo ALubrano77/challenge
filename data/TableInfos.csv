@@ -1,0 +1,112 @@
+"ID";"Title";"ShortTitle";"Identifier";"Summary";"Modified";"ReasonDelivery";"ExplanatoryText";"Language";"Catalog";"Frequency";"Period";"ShortDescription";"Description";"DefaultPresentation";"DefaultSelection";"GraphTypes";"OutputStatus";"Source";"MetaDataModified";"SearchPriority"
+"0";"Mobility; per person, modes of travel, purposes of travel and regions";"per person, travel modes, travel purpose";"84710ENG";"Trips, distance travelled, time travelled, per person per day/year
+modes of travel, purposes of travel and regions";"2023-07-05T02:00:00";"Update";"";"en";"CBS";"Yearly";"2018-2022";"
+This table contains information regarding the mobility of the residents of the Netherlands aged 6 or older in private households, so excluding residents of institutions and homes. The table contains per person per day /year an overview of the average number of trips, the average distance travelled and the average time travelled. These are regular trips on Dutch territory, including domestic holiday mobility. The distance travelled is based on stage information. Excluded in this table is mobility based on series of calls trips. The mobility behaviour is broken down by modes of travel, purposes of travel, population and region characteristics. The data used are retrieved from The Dutch National travel survey named Onderweg in Nederland (ODiN). 
+Data available from: 2018
+
+Status of the figures:
+The figures in this table are final.
+
+Changes as of 5 July 2023:
+The figures for year 2022 are added.
+
+When will new figures be published?
+Figures for the 2023 research year will be published in mid-2024
+ 
+";"CONTENTS
+
+1. General information
+2. Definitions and explanation of symbols
+3. Links to relevant tables and articles
+4. Sources and methods
+5. Further information
+
+
+1. GENERAL INFORMATION
+
+This table contains information regarding the mobility of the residents of the Netherlands aged 6 or older in private households, so excluding residents of institutions and homes. The table contains per person per day /year an overview of the average number of trips, the average distance travelled and the average time travelled. These are regular trips on Dutch territory, including domestic holiday mobility. The distance travelled is based on stage information. Excluded in this table is mobility based on series of calls trips. The mobility behaviour is broken down by modes of travel, purposes of travel, population and region characteristics. The data used are retrieved from The Dutch National travel survey named Onderweg in Nederland (ODiN). 
+Data available from: 2018
+
+Status of the figures:
+The figures in this table are final.
+
+Changes as of 5 July 2023:
+The figures for year 2022 are added.
+
+When will new figures be published?
+Figures for the 2023 research year will be published in mid-2024
+ 
+
+2. DEFINITIONS AND EXPLANATION OF SYMBOLS
+
+Definitions
+
+Trip 
+The unit of travel, a trip, is defined as a one-way course of travel with a single main purpose. For example: the distance travelled from home to work is one trip only regardless of whether one or more means of transport are used.
+
+Stage 
+A trip consists of one or more stages. A new stage is defined when there is a change in the form of transport or when there is a change of vehicle.
+
+Regular trips
+Regular trips concern the daily mobility in the Netherlands of the Dutch population aged 6 years and over in private households. This includes domestic holiday mobility. Successive work-related movements with a maximum of 3 consecutive work locations, are also included. Series of calls trips and (professional) road transport with a heavy freight vehicle are not considered regular trips.
+
+Regular passenger kilometres
+Regular passenger kilometres are the kilometres travelled during regular trips. It only concerns kilometres travelled on Dutch territory. Regular passenger kilometres by mode of transport have been calculated on the basis of the stage mode so that the distances of means of transport used for pre- and post-transport are also measured separately. For example, in the case of a journey from home to work with successively the bicycle to the station, the train and on foot to the office, the kilometres travelled by a stage mode of transport are assigned to the relevant mode of transport. Kilometres by plane are not counted.
+
+Series of calls trips 
+In order to reduce the burden on respondents in ODiN, travel involving 4 or more consecutive stops for the same main purpose ‘in course of work’ are treated as one continuous series of calls trip. Series of call trips are made, for example, by taxi drivers, parcel deliverers or a doctor’s round. Professional (series) trips with a heavy freight vehicle are not included in the calculation.
+
+Domestic holiday mobility
+Domestic holiday mobility concerns mobility in the Netherlands of the Dutch population because of holidays. These are both trips due to holidays in the Netherlands and the kilometres travelled on the way there or the way back on Dutch territory during a holiday abroad. Holidays are defined as staying outside your own home for relaxation or fun other than with family or acquaintances spent at home. Domestic holiday mobility is part of the regular passenger kilometres and of regular trips.
+
+Explanation of symbols:
+
+Empty cell	: figure not applicable
+. 		: figure is unknown, insufficiently reliable or confidential
+*		: provisional figure 
+**		: revised provisional figure
+
+
+3. LINKS TO RELEVANT TABLES AND ARTICLES
+
+Relevant tables:
+
+This table (ODiN) succeeds the tabel <a href='https://opendata.cbs.nl/statline/#/CBS/nl/dataset/83500NED'>Personenmobiliteit in Nederland; vervoerwijzen en reismotieven, regio's</a> 
+from the OViN (Dutch only)
+
+Other ODiN tables:
+
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84713eng'>Mobility; per person, personal characteristics, travel purposes and regions</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84709eng'>Mobility; per person, personal characteristics, modes of travel and regions</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84702eng'>Mobility; per person, trip characteristics, travel purposes and region</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84708eng'>Mobility; per person, trip characteristics, modes of travel and regions</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84711eng'>Mobility; per trip, modes of travel, purposes of travel and regions</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84687eng'>Total transport performance in the Netherlands; modes of travel and regions</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84755eng'>Mobility trend; per stage, modes of travel, purposes of travel, age and gender</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/84707eng'>Traffic participation and participation in public transport</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/85055eng'>Mobility; per trip, purposes of travel, trip characteristics, and regions</a>
+<a href='https://opendata.cbs.nl/statline/#/CBS/en/dataset/85056eng'>Mobility; per trip, trip characteristics, modes of travel, and regions</a>
+
+
+4. SOURCES AND METHODS
+
+A survey summary of samples and registrations in English is available in: <a href='https://www.cbs.nl/en-gb/onze-diensten/methods/surveys/korte-onderzoeksbeschrijvingen/dutch-national-travel-survey'>Dutch National Travel survey (cbs.nl)</a>
+
+An elaborate report about ODiN results and changes in 2018-2020 is available in Dutch:
+<a href='https://www.cbs.nl/nl-nl/longread/rapportages/2022/onderweg-in-nederland--odin---2018-2020'>Eindrapportage heropleveringen ODiN 2018-2020</a>
+
+A more detailed description of samples, registrations and the method used available in Dutch:
+<a href='https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/aanvullende onderzoeksbeschrijvingen/onderweg-in-nederland--odin---onderzoeksbeschrijving-2018'>Onderweg in Nederland (ODiN) 2018</a>.
+<a href='https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/aanvullende-onderzoeksbeschrijvingen/onderweg-in-nederland--odin---onderzoeksbeschrijving-2019'>Onderweg in Nederland (ODiN) 2019</a>.
+<a href='https://www.cbs.nl/nl-nl/longread/rapportages/2021/onderweg-in-nederland--odin---2020-onderzoeksbeschrijving'>Onderweg in Nederland (ODiN) 2020</a>.
+<a href='https://www.cbs.nl/nl-nl/longread/rapportages/2023/onderweg-in-nederland--odin---2022'>Onderweg in Nederland (ODiN) 2022</a>.
+
+5. FURTHER INFORMATION
+
+<a href='https://www.cbs.nl/en-gb/about-us/contact/infoservice'>Infoservice</a>
+
+Copyright (c) Statistics Netherlands, The Hague/Heerlen
+
+Reproduction is permitted, provided Statistics Netherlands is quoted as the source.
+";"graphtype=Table&r=TravelMotives,TravelModes&k=Topics,RegionCharacteristics,Periods&t=Population,Margins";"$filter=((TravelMotives eq '2030170') or (TravelMotives eq '2030190') or (TravelMotives eq '2030200') or (TravelMotives eq '2030210') or (TravelMotives eq '2820740') or (TravelMotives eq 'T001080')) and ((Population eq 'A048710')) and ((TravelModes eq 'T001093') or (TravelModes eq 'A048583') or (TravelModes eq 'A018981') or (TravelModes eq 'A018984') or (TravelModes eq 'A018985')) and ((Margins eq 'MW00000')) and ((RegionCharacteristics eq 'NL01    ') or (RegionCharacteristics eq 'PV26    '))&$select=TravelMotives, Population, TravelModes, Margins, RegionCharacteristics, Periods, Trips_1, DistanceTravelled_2, Trips_4, DistanceTravelled_5";"Table,Bar";"Regular";"CBS.";"2023-07-05T02:00:00";"2"
+
