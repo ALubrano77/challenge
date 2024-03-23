@@ -26,3 +26,21 @@ great expectations, polars, pandas
 
 
 
+## data ingestion issues
+
+### data cleansing
+**during ingestion**
+* trim keys
+to do both in dims and in fact tables to not break FKs
+* rename fields
+in lowercase and starting with a char, to simplify query editing
+renaming topic 1 measures per day (Trips_1,DistanceTravelled_2,TimeTravelled_3)
+renaming topic 2 measures per year (Trips_4,DistanceTravelled_5,TimeTravelled_6)
+* trip1 tp
+
+### data casting
+**after ingestion, in DB, to not change values before writing**
+* to_numeric for measures
+
+
+

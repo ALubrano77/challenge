@@ -1,3 +1,4 @@
+Key;Title;Description
 "MW00000";"Value";""
 "MOG0095";"Lower bound 95% confidence interval";"This is the lower bound of the interval that contains the true (unknown) value with 95% certainty."
 "MBG0095";"Upper bound 95% confidence interval";"This is the upper bound of the interval that contains the true (unknown) value with 95% certainty"
