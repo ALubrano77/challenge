@@ -10,13 +10,13 @@ The first table "TableInfos" contains also a table of contents, data definitions
 ## solution 1
 Considering the input, in particular the metadata.csv file, an industrialized way to proceed should be:
 a parser for metadata to create Dimension, TopicGroup, Topic tables with proper PKs, FKs,
-an ETL for fimension with data cleansing
+an ETL for dimension with data cleansing
 an ETL for data with data cleansing and validation
 
 ## solution 2
 considering also time availability and POC scope the solution will be:
 manual DDL creation with idempotency;
-an ETL for fimension with data cleansing
+an ETL for dimension with data cleansing
 an ETL for data
 
 ## tool exploration
@@ -24,7 +24,8 @@ for ETL several solutions have been explored from off-the-shelf ETL to python fr
 airbyte, nifi, airflow
 great expectations, polars, pandas
 
-
+https://opendata.cbs.nl/statline/#/CBS/nl/dataset/84710NED
+https://opendata.cbs.nl/ODataApi/odata/84710NED/UntypedDataSet
 
 ## data ingestion issues
 

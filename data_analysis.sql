@@ -51,33 +51,49 @@ with top10_bike as (
 	select x.id 
 	from (
 		select 
-			e."ID" as id, sum(e."DistanceTravelled_5") as "DistanceTravelled_bike" 
-			,row_number() over ( order by sum(e."DistanceTravelled_5") desc )   as rn			
+			e."ID" as id, sum(coalesce (e."DistanceTravelled_5",0)) as "DistanceTravelled_bike" 
+			,row_number() over ( order by sum(coalesce (e."DistanceTravelled_5",0)) desc )   as rn			
 		from public."84710e_tds_vw" e 			
 		join regioncharacteristics r ON r."Key" =e."RegionCharacteristics" 
 		join travelmodes td on td."Key" = e."TravelModes" 
 		join travelmotives tt on tt."Key" = e."TravelMotives" 
-		where r."Title" = 'West-Nederland (LD)'
+		join periods pe on pe."Key" =e."Periods"
+		where 1=1
 		and td."Title" = 'Bike'
-		and tt."Title" = 'Travel to/from work, (non)-daily commute'
+		and pe."Title" = '2022'
+		and tt."Title"  != 'Total'
 		group by e."ID" 
 		order by 2 desc )
 		as x
-	where x.rn <= 10 
+	where x.rn <= 8
 	)
-select pe."Title"  ---- ????????????????????  2018-2019  ??????????????
+select tt."Title" , tb.id, sum("Trips_4")
 from public."84710e_tds_vw" e 
-join margins m on m."Key" =e."Margins" 
+--join margins m on m."Key" =e."Margins" 
 join periods pe on pe."Key" =e."Periods"
-join population po on po."Key" =e."Population" 
-join regioncharacteristics r ON r."Key" =e."RegionCharacteristics" 
-join travelmodes td on td."Key" = e."TravelModes" 
+--join population po on po."Key" =e."Population" 
+--join regioncharacteristics r ON r."Key" =e."RegionCharacteristics" 
+--join travelmodes td on td."Key" = e."TravelModes" 
 join travelmotives tt on tt."Key" = e."TravelMotives" 
 join top10_bike tb on tb.id = e."ID" 
---where pe."Title" = '2022'
-
+where pe."Title" = '2022'
+--and tt."Title"  != 'Total'
+group by tt."Title" , tb.id
+--order by 2 desc
+--limit 3
 ;
+-- non mi torna:
+-- chiede gli utenti ma non ci sono utenti, solo aggregazioni per datamart
+-- inoltre data la natura di datamart, se uso l'ID il travelmotives più comune sarà sempre Total
+-- se elimino il Total non sono sicuro del risultato perchè confronto per ID e quindi anche per motivo e non per User
 
+
+select *
+from public."84710e_tds_vw" e 
+join travelmodes td on td."Key" = e."TravelModes" 
+where 1=1
+		and td."Title" = 'Bike'
+;
 
 
 
