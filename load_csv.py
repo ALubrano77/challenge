@@ -16,39 +16,26 @@ def split_dim_TableInfos(csv_path):
 
         lines = fp.readlines()
         for row in lines:
-            print('line Number:', lines.index(row))
+
+            if dim_name in dim_start_line :
+                if row.find(csv_separator) != -1 and rec_found:
+                    dim_nrows[dim_name]=dim_nrows[dim_name]+1
+                    rec_found = True
+                else:
+                    break
+
 
             # print(row.find(dim_name))
             # find() method returns -1 if the value is not found,
             # if found it returns index of the first occurrence of the substring
             if row.find('"'+dim_name+'"\n') != -1:
-                print('dimension found', lines.index(row))
                 dim_start_line[dim_name] = lines.index(row)
                 dim_nrows[dim_name] = 0
                 rec_found = True
 
-            print('dim_start_line', dim_start_line)
-            print('rec_found ', rec_found)
-            if dim_name in dim_start_line:
-                print( 'dim_nrows: ', (dim_nrows[dim_name] == 0) )
-
-            if dim_name in dim_start_line and dim_nrows[dim_name] == 0:
-                if row.find(csv_separator) != -1 and rec_found:
-                    print('separator found in line', lines.index(row))
-                    # dim_rows += 1
-                    dim_nrows[dim_name]=dim_rows[dim_name]+1
-                    rec_found = True
-                else:
-                    break
-
-        print('dim_rows:', dim_rows)
-        print('rec_found ',rec_found)
-
-
 
         print('dim_start_line', dim_start_line)
-        print('dim_rows:', dim_rows)
-        print('dim_rows:', dim_rows)
+        print('dim_nrows:', dim_nrows)
 
 
 
