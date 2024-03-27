@@ -2,6 +2,7 @@ import pandas as pd
 import logging
 
 
+
 def import_csv(csv_path):
     df = pd.read_csv(csv_path)
     # print(df)
@@ -53,7 +54,7 @@ def extract_lines(lines, dim_start_line, dim_end_line):
 
 
 def extract(dim_list, csv_path):
-    dims = dict()
+    dims_rows = dict()
     csv_lines = loadfile(csv_path)
 
     for dim_name in dim_list:
@@ -62,19 +63,22 @@ def extract(dim_list, csv_path):
         # print(csv_lines)
         logging.info(dim_idx)
         dim_lines = extract_lines(csv_lines, dim_idx[0], dim_idx[2])
-        dims[dim_name] = dim_lines
+        dims_rows[dim_name] = dim_lines
 
-    return dims
+    return dims_rows
 
 def transform(dims):
     dims_trans = dict()
+    row_split = []
     for dim_name, dim_list in dims.items():
         logging.info(dim_name)
         logging.info(dim_list)
         dim_list_trans = list()
         for row in dim_list:
             row = row.replace("\n", "").strip()
-            dim_list_trans.append(row)
+            row_split = row.split( ";")
+            #print(row_split)
+            dim_list_trans.append(row_split)
 
         dims_trans[dim_name] = dim_list_trans
     return dims_trans
@@ -84,17 +88,18 @@ def dim_list_load():
     DataProperties_dict = extract(['DataProperties'], csv_path)
     DataProperties_dict = transform(DataProperties_dict)
     DataProperties_list = DataProperties_dict['DataProperties']
+    print(DataProperties_list)
 
     for row in DataProperties_list:
-        row_list = row.split(";")
-        if row_list[3] == "\"Dimension\"" :
-            dim_list.append(row_list[4].replace("\"", ""))
+        if row[3] == "\"Dimension\"" :
+            dim_list.append(row[4].replace("\"", ""))
 
     return dim_list
 
 
 if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
+    logger = logging.getLogger(__name__)
 
     csv_path = './data/84710ENG_metadata.csv'
 
@@ -102,21 +107,31 @@ if __name__ == '__main__':
     logging.info("dim_list")
     logging.info(dim_list)
 
-    # dim_name = 'TravelMotives'
     # dim_list = ['Margins', 'Periods', 'Population', 'RegionCharacteristics', 'TableInfos', 'TravelModes', 'TravelMotives']
-    dim_list = ['Margins']
-    dims = extract(dim_list, csv_path)
-    print(dims)
-    # logging.info(dims)
+    # dim_list = ['Margins']
+    dims_rows = extract(dim_list, csv_path)
+    print(dims_rows)
 
-    dims = transform(dims)
+    dims_dictlist = transform(dims_rows)
 
     logging.info("dims transformed")
-    logging.info(dims)
+    logging.info(dims_dictlist)
 
-    print(dims)
-    df = pd.DataFrame(dims)
-    print(df)
+    print('dims_dict ', dims_dictlist)
+
+    dims_dictdf = {}
+    for dim_tab, dim_cells in dims_dictlist.items():
+        print('dim_tab ', dim_tab)
+        print('dim_cells ', dim_cells)
+        dims_dictdf[dim_tab] = pd.DataFrame(dim_cells, columns = dim_cells[0])
+
+    print("TEST")
+    print(dims_dictdf["Population"])
+
+    #print("")
+    #print (dims_dictlist['Margins'])
+    #df = pd.DataFrame(dims_dictlist['Margins'], columns = dims_dictlist['Margins'][0])
+    #print(df)
 
 # TODO Extract: metadata to DF;  load csv in DF, split DF
 # TODO Transform: data validation and cleansing: /n, trim
