@@ -4,7 +4,7 @@ import logging
 
 def import_csv(csv_path):
     df = pd.read_csv(csv_path)
-    print(df)
+    # print(df)
     return df
 
 
@@ -52,16 +52,18 @@ def extract_lines(lines, dim_start_line, dim_end_line):
 
 
 
-def extract(dims_list, csv_path):
+def extract(dim_list, csv_path):
     dims = dict()
     csv_lines = loadfile(csv_path)
 
-    for dim_name in dims_list:
+    for dim_name in dim_list:
         logging.info(dim_name)
         dim_idx = split_csv_dim_indexes(csv_lines, dim_name)
+        # print(csv_lines)
         logging.info(dim_idx)
         dim_lines = extract_lines(csv_lines, dim_idx[0], dim_idx[2])
         dims[dim_name] = dim_lines
+
     return dims
 
 def transform(dims):
@@ -86,26 +88,35 @@ def dim_list_load():
     for row in DataProperties_list:
         row_list = row.split(";")
         if row_list[3] == "\"Dimension\"" :
-            dim_list.append(row_list[4])
+            dim_list.append(row_list[4].replace("\"", ""))
 
     return dim_list
 
 
 if __name__ == '__main__':
-    # logging.getLogger().setLevel(logging.INFO)
+    logging.getLogger().setLevel(logging.INFO)
 
     csv_path = './data/84710ENG_metadata.csv'
 
     dim_list = dim_list_load()
+    logging.info("dim_list")
+    logging.info(dim_list)
 
     # dim_name = 'TravelMotives'
-    # dims_list = ['Margins', 'Periods', 'Population', 'RegionCharacteristics', 'TableInfos', 'TravelModes', 'TravelMotives']
-    dims_list = ['RegionCharacteristics']
-    dims = extract(dims_list, csv_path)
+    # dim_list = ['Margins', 'Periods', 'Population', 'RegionCharacteristics', 'TableInfos', 'TravelModes', 'TravelMotives']
+    dim_list = ['Margins']
+    dims = extract(dim_list, csv_path)
+    print(dims)
     # logging.info(dims)
 
     dims = transform(dims)
+
+    logging.info("dims transformed")
     logging.info(dims)
+
+    print(dims)
+    df = pd.DataFrame(dims)
+    print(df)
 
 # TODO Extract: metadata to DF;  load csv in DF, split DF
 # TODO Transform: data validation and cleansing: /n, trim
