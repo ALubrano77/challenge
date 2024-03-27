@@ -73,32 +73,34 @@ def transform(dims):
         for row in dim_list:
             row = row.replace("\n", "").strip()
             dim_list_trans.append(row)
-            print(row)
-
 
         dims_trans[dim_name] = dim_list_trans
     return dims_trans
 
 def dim_list_load():
-    DataProperties_list = extract(['DataProperties'], csv_path)
-    print('DataProperties_list ', DataProperties_list['DataProperties'])
+    dim_list = []
+    DataProperties_dict = extract(['DataProperties'], csv_path)
+    DataProperties_dict = transform(DataProperties_dict)
+    DataProperties_list = DataProperties_dict['DataProperties']
+
+    for row in DataProperties_list:
+        row_list = row.split(";")
+        if row_list[3] == "\"Dimension\"" :
+            dim_list.append(row_list[4])
+
+    return dim_list
 
 
 if __name__ == '__main__':
-    logging.getLogger().setLevel(logging.INFO)
+    # logging.getLogger().setLevel(logging.INFO)
 
     csv_path = './data/84710ENG_metadata.csv'
 
-    dim_list_load()
-
-
+    dim_list = dim_list_load()
 
     # dim_name = 'TravelMotives'
-    dims_list = ['Margins', 'Periods', 'Population', 'RegionCharacteristics', 'TableInfos', 'TravelModes',
-                 'TravelMotives']
+    # dims_list = ['Margins', 'Periods', 'Population', 'RegionCharacteristics', 'TableInfos', 'TravelModes', 'TravelMotives']
     dims_list = ['RegionCharacteristics']
-
-
     dims = extract(dims_list, csv_path)
     # logging.info(dims)
 
