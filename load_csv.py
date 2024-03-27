@@ -1,4 +1,5 @@
 import pandas as pd
+import logging
 
 
 def import_csv(csv_path):
@@ -10,7 +11,7 @@ def import_csv(csv_path):
 def loadfile(filepath):
     with open(filepath, 'r') as file:
         lines = file.readlines()
-    print(lines)
+    logging.info(lines)
     return lines
 
 
@@ -41,31 +42,39 @@ def split_csv_dim_indexes(lines, dim_name):
     return dim_start_line, dim_nrows, dim_end_line
 
 
-def extract_dim(csv_path, dim_name, dim_start_line, dim_end_line):
-    with open(csv_path, 'r') as fp:
-        lines = fp.readlines()
-        for line in lines[dim_start_line:dim_end_line]:
-            print(line)
+def extract_lins(lines, dim_start_line, dim_end_line):
+    dim_lines = []
+    for line in lines[dim_start_line:dim_end_line]:
+        dim_lines.append(line)
+
+    # print(dim_lines)
+    return dim_lines
+
+
+def extract(dims_list, csv_path, dims):
+    for dim_name in dims_list:
+        csv_lines = loadfile(csv_path)
+
+        dim = split_csv_dim_indexes(csv_lines, dim_name)
+        logging.info(dim_name)
+        logging.info(dim)
+
+        dim_lines = extract_lins(csv_lines, dim[0], dim[2])
+        dims[dim_name] = dim_lines
+    return dims
 
 
 if __name__ == '__main__':
+    logging.getLogger().setLevel(logging.INFO)
+
     csv_path = './data/84710ENG_metadata.csv'
-    dim_name = 'TravelMotives'
+    # dim_name = 'TravelMotives'
+    dims_list = ['Margins', 'Periods', 'Population', 'RegionCharacteristics', 'TableInfos', 'TravelModes',
+                 'TravelMotives']
+    dims = dict()
 
-    # find dim
-    # print('TableInfos', split_dim_csv_indexes(csv_path, 'TableInfos'))
-    # print('TravelMotives', split_dim_csv_indexes(csv_path, 'TravelMotives'))
-    # print('Population', split_dim_csv_indexes(csv_path, 'Population'))
-    # print('TravelModes', split_dim_csv_indexes(csv_path, 'TravelModes'))
-    # print('test', split_dim_csv_indexes(csv_path, 'test'))
-
-    csv_lines = loadfile(csv_path)
-
-    dim = split_csv_dim_indexes(csv_lines, dim_name)
-    print(dim_name, ': ', dim)
-    extract_dim(csv_path, dim_name, dim[0], dim[2])
-    # extract dim
-
+    extract(dims_list, csv_path, dims)
+    logging.info(dims)
 
 # TODO Extract: metadata to DF;  load csv in DF, split DF
 # TODO Transform: data validation and cleansing: /n, trim
