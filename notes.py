@@ -16,3 +16,9 @@
 
 # TODO validate data before loading, with Pandera
 # TODO introduce hypothesis as an example
+
+
+
+You don’t need a fancy data stack to get started
+KISS — Keep It Simple and Stupid at first, then improve if needed
+Data quality is the root of all your problems
