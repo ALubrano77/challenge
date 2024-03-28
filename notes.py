@@ -13,3 +13,6 @@
 # with open(csv_path, 'w') as file:
 #    for line in lines[0:10]:
 #        file.write(line)
+
+# TODO validate data before loading, with Pandera
+# TODO introduce hypothesis as an example
